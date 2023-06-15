@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:thought_stream/Components/custom_button.dart';
-import 'package:thought_stream/Components/textfield.dart';
 
-class LoginPage extends StatefulWidget {
+import '../../Components/custom_button.dart';
+import '../../Components/textfield.dart';
+import 'auth_components.dart';
+
+class RegisterPage extends StatefulWidget {
   final Function()? ontap;
-  const LoginPage({super.key, this.ontap});
+
+  const RegisterPage({super.key, this.ontap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
+  final TextEditingController confirmpassController = TextEditingController();
+  AuthComponents authComponents = AuthComponents();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 // * Welcome Back Message
                 Text(
-                  "Welcome Back, you've been missed!",
+                  "Lets Create an Account for you!",
                   style: TextStyle(color: Colors.grey[700]),
                 ),
                 const SizedBox(height: 25),
@@ -49,9 +54,22 @@ class _LoginPageState extends State<LoginPage> {
                     hinttext: "Password",
                     obscuretext: true),
                 const SizedBox(height: 10),
-
+                // * Confirm Password TextField
+                CustomTextField(
+                    controller: confirmpassController,
+                    hinttext: "Confirm Password",
+                    obscuretext: true),
+                const SizedBox(height: 10),
                 // * Sign in Button
-                CustomButton(text: "Login", ontap: () {}),
+                CustomButton(
+                    text: "Sign Up",
+                    ontap: () {
+                      authComponents.signUp(
+                          confirmpassword: confirmpassController.text,
+                          context: context,
+                          email: emailController.text,
+                          password: passController.text);
+                    }),
                 const SizedBox(height: 25),
 
                 // * Goto Register Page
@@ -59,13 +77,13 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Not a Member?",
+                      "Already have an Account?",
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                     const SizedBox(width: 4),
                     GestureDetector(
                       onTap: widget.ontap,
-                      child: const Text("Register Now",
+                      child: const Text("Login here",
                           style: TextStyle(color: Colors.blue)),
                     )
                   ],
