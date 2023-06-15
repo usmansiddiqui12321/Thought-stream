@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "626544724895",
+    "project_id": "thought-stream-ccdfb",
+    "storage_bucket": "thought-stream-ccdfb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626544724895:android:c96bf78f52820de7748baa",
+        "android_client_info": {
+          "package_name": "com.example.thought_stream"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626544724895-dlmbv4i6ht5lgcpgh785mpr6b24i0dtf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPGAWOvQvUrIJ1lQDk_Y4gX_9U4BeRido"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626544724895-dlmbv4i6ht5lgcpgh785mpr6b24i0dtf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
