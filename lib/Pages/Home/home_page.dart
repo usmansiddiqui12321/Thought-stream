@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:thought_stream/Components/drawer.dart';
 import 'package:thought_stream/Components/textfield.dart';
 import 'package:thought_stream/Components/wall_post.dart';
-import 'package:thought_stream/Pages/Home/post_components.dart';
+import 'package:thought_stream/Pages/Home/homapage_components.dart';
 
 import '../Authentication/auth_components.dart';
 
@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  PostComponents postComponents = PostComponents();
+  HomePageComponents postComponents = HomePageComponents();
   AuthComponents authComponents = AuthComponents();
   final currentuser = FirebaseAuth.instance.currentUser;
   final poststream = FirebaseFirestore.instance
@@ -35,17 +35,15 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.grey[900],
         elevation: 0,
         toolbarHeight: 80,
-        actions: [
-          IconButton(
-              onPressed: () {
-                authComponents.signOut();
-              },
-              icon: const Icon(Icons.logout_rounded))
-        ],
+        centerTitle: true,
       ),
       drawer: CustomDrawer(
-        onProfileTap: () {},
-        onSignOutTap: () {},
+        onProfileTap: () {
+          postComponents.gotoProfile(context);
+        },
+        onSignOutTap: () {
+          authComponents.signOut();
+        },
       ),
       body: Center(
         child: Column(

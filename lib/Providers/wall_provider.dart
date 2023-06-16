@@ -1,5 +1,3 @@
-
-
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:flutter/material.dart';
@@ -43,11 +41,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../Pages/Home/post_components.dart';
+import '../Pages/Home/homapage_components.dart';
 
 class WallProvider extends ChangeNotifier {
-  PostComponents postcomp = PostComponents();
-  final Map<String, bool> _likedPosts = {}; // Map to store like status for each post
+  HomePageComponents postcomp = HomePageComponents();
+  final Map<String, bool> _likedPosts =
+      {}; // Map to store like status for each post
 
   Map<String, bool> get likedPosts => _likedPosts;
 
