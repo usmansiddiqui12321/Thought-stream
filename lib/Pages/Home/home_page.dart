@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:thought_stream/Components/drawer.dart';
 import 'package:thought_stream/Components/textfield.dart';
 import 'package:thought_stream/Components/wall_post.dart';
 import 'package:thought_stream/Pages/Home/post_components.dart';
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   final currentuser = FirebaseAuth.instance.currentUser;
   final poststream = FirebaseFirestore.instance
       .collection("User Post")
-      .orderBy("timestamp", descending: false)
+      .orderBy("timestamp", descending: true)
       .snapshots();
   TextEditingController postController = TextEditingController();
   @override
@@ -41,6 +42,10 @@ class _HomePageState extends State<HomePage> {
               },
               icon: const Icon(Icons.logout_rounded))
         ],
+      ),
+      drawer: CustomDrawer(
+        onProfileTap: () {},
+        onSignOutTap: () {},
       ),
       body: Center(
         child: Column(
