@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:thought_stream/Components/GlobalComponents.dart';
@@ -47,8 +48,19 @@ class AuthComponents {
       comp.displayMessage(message: "Passwords don't match!", context: context);
     } else {
       try {
-        await auth.createUserWithEmailAndPassword(
-            email: email, password: password);
+        //create User
+        UserCredential userCredential = await auth
+            .createUserWithEmailAndPassword(email: email, password: password);
+
+        //After Creating user , Create New Doc in Firebase
+        FirebaseFirestore.instance
+            .collection('users')
+            .doc(userCredential.user!.email)
+            .set({
+          'username': email.split('@')[0], // initial UserName
+          'bio': 'Empty Bio',
+          //add additional Field as needed
+        });
         if (context.mounted) Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         Navigator.pop(context);
