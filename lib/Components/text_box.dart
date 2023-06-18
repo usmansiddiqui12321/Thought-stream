@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class UserTextBox extends StatelessWidget {
   final String text, sectionName;
   final void Function()? ontap;
-  const UserTextBox({super.key, required this.text, required this.sectionName, this.ontap});
+  const UserTextBox(
+      {super.key, required this.text, required this.sectionName, this.ontap});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class UserTextBox extends StatelessWidget {
               //section name
               Text(sectionName, style: TextStyle(color: Colors.grey[500])),
               IconButton(
-                  onPressed: () {},
+                  onPressed: ontap,
                   icon: Icon(
                     Icons.settings,
                     color: Colors.grey[500],

@@ -45,6 +45,7 @@ import '../Pages/Home/homapage_components.dart';
 
 class WallProvider extends ChangeNotifier {
   HomePageComponents postcomp = HomePageComponents();
+
   final Map<String, bool> _likedPosts =
       {}; // Map to store like status for each post
 
@@ -59,23 +60,22 @@ class WallProvider extends ChangeNotifier {
     return _likedPosts[postID] ?? false;
   }
 
-  final currentUser = FirebaseAuth.instance.currentUser;
-
   void toggleLike({required String postID}) {
+    final currentUser = FirebaseAuth.instance.currentUser;
     final isLiked = isPostLiked(postID);
     setLikeStatus(postID, !isLiked);
 
     DocumentReference postRef =
-        FirebaseFirestore.instance.collection('User Post').doc(postID);
+        FirebaseFirestore.instance.collection('userpost').doc(postID);
     if (!isLiked) {
       // If post is not liked, add user's email to likes array field
       postRef.update({
-        'likes': FieldValue.arrayUnion([currentUser!.email]),
+        'likes': FieldValue.arrayUnion([currentUser?.email]),
       });
     } else {
       // If it is liked, remove user's email from likes array field
       postRef.update({
-        'likes': FieldValue.arrayRemove([currentUser!.email]),
+        'likes': FieldValue.arrayRemove([currentUser?.email]),
       });
     }
   }

@@ -61,13 +61,15 @@ class _ProfilePageState extends State<ProfilePage> {
                   //username
                   UserTextBox(
                       text: userData["username"],
-                      sectionName: "testUser",
-                      ontap: () => profileComp.editField(field: 'username')),
+                      sectionName: "username",
+                      ontap: () => profileComp.editField(
+                          field: 'username', context: context)),
                   // Bio
                   UserTextBox(
                       text: userData['bio'],
                       sectionName: "bio",
-                      ontap: () => profileComp.editField(field: 'bio')),
+                      ontap: () => profileComp.editField(
+                          field: 'bio', context: context)),
                   //userPosts
                   const SizedBox(height: 50),
 

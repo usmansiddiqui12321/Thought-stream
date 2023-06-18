@@ -6,6 +6,7 @@ import 'package:thought_stream/Components/drawer.dart';
 import 'package:thought_stream/Components/textfield.dart';
 import 'package:thought_stream/Components/wall_post.dart';
 import 'package:thought_stream/Pages/Home/homapage_components.dart';
+import 'package:thought_stream/helper/helper_method.dart';
 
 import '../Authentication/auth_components.dart';
 
@@ -19,9 +20,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   HomePageComponents postComponents = HomePageComponents();
   AuthComponents authComponents = AuthComponents();
+  final commentController = TextEditingController();
   final currentuser = FirebaseAuth.instance.currentUser;
   final poststream = FirebaseFirestore.instance
-      .collection("User Post")
+      .collection("userpost")
       .orderBy("timestamp", descending: true)
       .snapshots();
   TextEditingController postController = TextEditingController();
@@ -60,10 +62,12 @@ class _HomePageState extends State<HomePage> {
                         //get the message
                         final post = snapshot.data!.docs[index];
                         return WallPost(
+                          commentController: commentController,
                           user: post['useremail'],
                           message: post['message'],
                           postId: post.id,
                           likes: post['likes'],
+                          time: formatDate(post['timestamp']),
                         );
                       },
                     );
