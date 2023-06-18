@@ -21,12 +21,10 @@ class _ProfilePageState extends State<ProfilePage> {
         .doc(currentuser!.email)
         .snapshots();
     return Scaffold(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
-          backgroundColor: Colors.grey[900],
           title: const Text("Profile Page"),
           centerTitle: true,
-          elevation: 0,
           toolbarHeight: 80,
         ),
         body: StreamBuilder(

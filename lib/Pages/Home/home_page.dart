@@ -31,10 +31,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: const Text("Thoughts Stream"),
-        backgroundColor: Colors.grey[900],
+
         elevation: 0,
         toolbarHeight: 80,
         centerTitle: true,

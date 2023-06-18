@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -73,5 +75,58 @@ class HomePageComponents {
         ],
       ),
     );
+  }
+
+  // Delete Post
+  void deletePost({required BuildContext context, required String postID}) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: const Text("Delete Post"),
+              content: const Text("Are you sure you want to delete this post?"),
+              actions: [
+                // cancel button
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      "Cancel",
+                    )),
+                //Confirm Button
+                TextButton(
+                    onPressed: () async {
+                      //delete comments from firestore first
+
+                      var commentDocs = await FirebaseFirestore.instance
+                          .collection("userpost")
+                          .doc(postID)
+                          .collection("comments")
+                          .get();
+
+                      for (var doc in commentDocs.docs) {
+                        await FirebaseFirestore.instance
+                            .collection("userpost")
+                            .doc(postID)
+                            .collection("comments")
+                            .doc(doc.id)
+                            .delete();
+                      }
+
+                      //Then Delete Post
+                      FirebaseFirestore.instance
+                          .collection("userpost")
+                          .doc(postID)
+                          .delete()
+                          .then((value) => print("postDelete"))
+                          .onError((error, stackTrace) => print("$error"));
+                      // ignore: use_build_context_synchronously
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      "Delete",
+                    ))
+              ],
+            ));
   }
 }

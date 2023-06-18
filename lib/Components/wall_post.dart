@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thought_stream/Components/Comments.dart';
 import 'package:thought_stream/Components/comment_button.dart';
+import 'package:thought_stream/Components/delete_button.dart';
 import 'package:thought_stream/Components/like_button.dart';
 import 'package:thought_stream/Pages/Home/homapage_components.dart';
 import 'package:thought_stream/Providers/wall_provider.dart';
 import 'package:thought_stream/helper/helper_method.dart';
 
 class WallPost extends StatefulWidget {
-  final String user, message, postId , time;
+  final String user, message, postId, time;
   final List<dynamic> likes;
   final TextEditingController commentController;
   const WallPost({
@@ -19,7 +20,8 @@ class WallPost extends StatefulWidget {
     required this.message,
     required this.postId,
     required this.likes,
-    required this.commentController, required this.time,
+    required this.commentController,
+    required this.time,
   }) : super(key: key);
 
   @override
@@ -50,7 +52,7 @@ class _WallPostState extends State<WallPost> {
         .snapshots();
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(8),
       ),
       margin: const EdgeInsets.only(top: 25, left: 25, right: 25),
@@ -60,27 +62,42 @@ class _WallPostState extends State<WallPost> {
         children: [
           //  *Post data
           // wall post
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // message
-              Text(widget.message),
-              const SizedBox(height: 5),
+              // Group of text ("message + userEmail")
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // message
+                  Text(widget.message),
+                  const SizedBox(height: 5),
 
-              //user
-             Row(
-            children: [
-              Text(
-                widget.user,
-                style: TextStyle(color: Colors.grey[400]),
+                  //user
+                  Row(
+                    children: [
+                      Text(
+                        widget.user,
+                        style: TextStyle(color: Colors.grey[400]),
+                      ),
+                      const Text(" . "),
+                      Text(
+                        widget.time,
+                        style: TextStyle(color: Colors.grey[400]),
+                      )
+                    ],
+                  )
+                ],
               ),
-              const Text(" . "),
-              Text(
-                widget.time,
-                style: TextStyle(color: Colors.grey[400]),
-              )
-            ],
-          )
+              // Delete Button
+              if (widget.user == currentUser!.email)
+                DeleteButton(
+                  onTap: () {
+                    homecomp.deletePost(
+                        context: context, postID: widget.postId);
+                  },
+                )
             ],
           ),
           const SizedBox(height: 20),

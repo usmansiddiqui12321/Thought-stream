@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thought_stream/Auth/auth.dart';
 import 'package:thought_stream/Providers/wall_provider.dart';
+import 'package:thought_stream/Theme/dark_theme.dart';
+import 'package:thought_stream/Theme/light_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,9 +21,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => WallProvider())],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: AuthPage(),
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        home: const AuthPage(),
       ),
     );
   }

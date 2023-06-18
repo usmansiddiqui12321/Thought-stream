@@ -13,16 +13,16 @@ class Comment extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
-        color: Colors.grey[300],
+        color: Theme.of(context).colorScheme.secondary,
       ),
-      margin: EdgeInsets.only(bottom: 5),
-      padding: EdgeInsets.all(15),
+      margin: const EdgeInsets.only(bottom: 5),
+      padding: const EdgeInsets.all(15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //Comment
           Text(comment),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           //User , Time
           Row(
             children: [
