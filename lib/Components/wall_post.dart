@@ -79,12 +79,12 @@ class _WallPostState extends State<WallPost> {
                     children: [
                       Text(
                         widget.user,
-                        style: TextStyle(color: Colors.grey[400]),
+                        style: TextStyle(color: Colors.grey[600]),
                       ),
                       const Text(" . "),
                       Text(
                         widget.time,
-                        style: TextStyle(color: Colors.grey[400]),
+                        style: TextStyle(color: Colors.grey[600]),
                       )
                     ],
                   )

@@ -9,6 +9,5 @@ ThemeData darkTheme = ThemeData(
       secondary: Colors.grey[700]!),
   textButtonTheme: TextButtonThemeData(
     style:
-        TextButton.styleFrom(textStyle: const TextStyle(color: Colors.white)),
-  ),
-);
+        TextButton.styleFrom(foregroundColor: Colors.white)),
+  );
