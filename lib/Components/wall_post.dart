@@ -157,14 +157,15 @@ class _WallPostState extends State<WallPost> {
               ),
             ],
           ),
-          SizedBox(height: 20),
-// comments under post
+          const SizedBox(height: 20),
+
+          // comments under post
 
           StreamBuilder<QuerySnapshot>(
             stream: commentsStream,
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               }
