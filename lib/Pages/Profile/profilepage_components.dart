@@ -13,17 +13,13 @@ class ProfilePageComponents {
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: Colors.grey[900],
         title: Text(
           "Edit $field",
-          style: const TextStyle(color: Colors.white),
         ),
         content: TextField(
           autofocus: true,
-          style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
             hintText: "Enter new $field",
-            hintStyle: const TextStyle(color: Colors.grey),
           ),
           onChanged: (value) {
             newvalue = value;
@@ -43,7 +39,7 @@ class ProfilePageComponents {
       ),
     );
     //Update FireStore
-    if (newvalue.trim().length > 0) {
+    if (newvalue.trim().isNotEmpty) {
       //only update if something in Textfield
       await usersCollection.doc(currentUser!.email).update({field: newvalue});
     }
