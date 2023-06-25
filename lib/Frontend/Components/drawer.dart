@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thought_stream/Components/custom_list_tile.dart';
+import 'package:thought_stream/Frontend/Components/custom_list_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer(

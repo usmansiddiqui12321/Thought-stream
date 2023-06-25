@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:thought_stream/Components/text_box.dart';
-import 'package:thought_stream/Pages/Profile/profilepage_components.dart';
+import 'package:thought_stream/Database/Components/profilepage_components.dart';
+import 'package:thought_stream/Frontend/Components/text_box.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

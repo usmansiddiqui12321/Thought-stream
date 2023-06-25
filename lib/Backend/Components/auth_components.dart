@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:thought_stream/Components/GlobalComponents.dart';
+import 'package:thought_stream/Frontend/Components/GlobalComponents.dart';
 
 class AuthComponents {
   GlobalComponents comp = GlobalComponents();

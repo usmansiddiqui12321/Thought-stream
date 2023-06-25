@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
-import 'package:thought_stream/Pages/Profile/profile_page.dart';
+import 'package:thought_stream/Frontend/Pages/Profile/profile_page.dart';
 
 class HomePageComponents {
   final currentuser = FirebaseAuth.instance.currentUser;

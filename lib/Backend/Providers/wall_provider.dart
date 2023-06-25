@@ -2,8 +2,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:thought_stream/Database/Components/homapage_components.dart';
 
-import '../Pages/Home/homapage_components.dart';
 
 class WallProvider extends ChangeNotifier {
   HomePageComponents postcomp = HomePageComponents();

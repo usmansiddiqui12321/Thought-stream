@@ -2,13 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:thought_stream/Components/drawer.dart';
-import 'package:thought_stream/Components/textfield.dart';
-import 'package:thought_stream/Components/wall_post.dart';
-import 'package:thought_stream/Pages/Home/homapage_components.dart';
+import 'package:thought_stream/Database/Components/homapage_components.dart';
+import 'package:thought_stream/Frontend/Components/drawer.dart';
+import 'package:thought_stream/Frontend/Components/textfield.dart';
+import 'package:thought_stream/Frontend/Components/wall_post.dart';
 import 'package:thought_stream/helper/helper_method.dart';
 
-import '../Authentication/auth_components.dart';
+import '../../../Backend/Components/auth_components.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

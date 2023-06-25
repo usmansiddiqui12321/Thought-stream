@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:thought_stream/Auth/auth.dart';
-import 'package:thought_stream/Providers/wall_provider.dart';
+import 'package:thought_stream/Backend/Auth/auth.dart';
+import 'package:thought_stream/Backend/Providers/wall_provider.dart';
 import 'package:thought_stream/Theme/dark_theme.dart';
 import 'package:thought_stream/Theme/light_theme.dart';
 

@@ -11,7 +11,6 @@ String formatDate(Timestamp timestamp) {
   String year = dateTime.year.toString();
   //get month
   String month = dateTime.month.toString();
-
   //get day
   String day = dateTime.day.toString();
   //final formatted Date

@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:thought_stream/Components/Comments.dart';
-import 'package:thought_stream/Components/comment_button.dart';
-import 'package:thought_stream/Components/delete_button.dart';
-import 'package:thought_stream/Components/like_button.dart';
-import 'package:thought_stream/Pages/Home/homapage_components.dart';
-import 'package:thought_stream/Providers/wall_provider.dart';
+import 'package:thought_stream/Database/Components/homapage_components.dart';
+import 'package:thought_stream/Frontend/Components/Comments.dart';
+import 'package:thought_stream/Frontend/Components/comment_button.dart';
+import 'package:thought_stream/Frontend/Components/delete_button.dart';
+import 'package:thought_stream/Frontend/Components/like_button.dart';
+import 'package:thought_stream/Backend/Providers/wall_provider.dart';
 import 'package:thought_stream/helper/helper_method.dart';
 
 class WallPost extends StatefulWidget {
