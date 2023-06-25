@@ -6,9 +6,8 @@ import 'package:thought_stream/Database/Components/homapage_components.dart';
 
 class WallProvider extends ChangeNotifier {
   HomePageComponents postcomp = HomePageComponents();
-
-  final Map<String, bool> _likedPosts =
-      {}; // Map to store like status for each post
+ // Map to store like status for each post
+  final Map<String, bool> _likedPosts ={};
 
   Map<String, bool> get likedPosts => _likedPosts;
 
