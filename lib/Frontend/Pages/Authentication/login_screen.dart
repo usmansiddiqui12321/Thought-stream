@@ -22,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // * Logo
-                const Icon(Icons.lock, size: 100, color: Colors.black),
+                const Icon(Icons.lock, size: 100),
                 const SizedBox(height: 50),
 
                 // * Welcome Back Message
